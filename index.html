@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VOYAGE — A Journey Through The Cosmos</title>
+    <meta name="description" content="An immersive 3D scroll-driven journey through space built with Three.js.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Three.js Canvas (fixed background) -->
+    <canvas id="webgl"></canvas>
+
+    <!-- Progress Bar -->
+    <div id="progress-bar">
+        <div id="progress-fill"></div>
+    </div>
+
+    <!-- HUD: Distance Tracker -->
+    <div id="tracker">
+        <div class="tracker-icon">◈</div>
+        <div class="tracker-info">
+            <span class="tracker-label">DISTANCE FROM EARTH</span>
+            <span class="tracker-value" id="tracker-distance">0 km</span>
+        </div>
+    </div>
+
+    <!-- Scrollable Content Overlay -->
+    <div id="scroll-content">
+
+        <!-- HERO -->
+        <section class="panel" id="panel-hero">
+            <div class="panel-inner center-text">
+                <p class="eyebrow" data-anim="fade">EMBARK ON A</p>
+                <h1 class="title-huge" data-anim="fade">VOYAGE</h1>
+                <p class="subtitle" data-anim="fade">Scroll to fly through the cosmos</p>
+                <div class="scroll-cta" data-anim="fade">
+                    <span>Begin Journey</span>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                        <path d="M12 4L12 20M12 20L6 14M12 20L18 14" stroke="white" stroke-width="2"
+                            stroke-linecap="round" />
+                    </svg>
+                </div>
+            </div>
+        </section>
+
+        <!-- MOON -->
+        <section class="panel" id="panel-moon">
+            <div class="panel-inner side-right">
+                <span class="section-num">01</span>
+                <h2 class="planet-title moon-color" data-anim="slide">The Moon</h2>
+                <p class="planet-tag" data-anim="slide">Earth's Eternal Companion</p>
+                <p class="planet-body" data-anim="slide">Our closest celestial neighbor has guided humanity's
+                    imagination for millennia. Its barren, cratered surface hides a complex geological history spanning
+                    4.5 billion years.</p>
+                <div class="stats-row" data-anim="slide">
+                    <div class="stat"><span class="stat-val moon-color" data-count="384400">0</span><span
+                            class="stat-lbl">km away</span></div>
+                    <div class="stat"><span class="stat-val moon-color" data-count="3474">0</span><span
+                            class="stat-lbl">km diameter</span></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- MARS -->
+        <section class="panel" id="panel-mars">
+            <div class="panel-inner side-left">
+                <span class="section-num">02</span>
+                <h2 class="planet-title mars-color" data-anim="slide">Mars</h2>
+                <p class="planet-tag" data-anim="slide">The Red Frontier</p>
+                <p class="planet-body" data-anim="slide">The Red Planet captivates with its rusty iron oxide surface and
+                    the tallest volcano in the solar system — Olympus Mons, standing three times the height of Everest.
+                </p>
+                <div class="stats-row" data-anim="slide">
+                    <div class="stat"><span class="stat-val mars-color" data-count="225">0</span><span
+                            class="stat-lbl">million km</span></div>
+                    <div class="stat"><span class="stat-val mars-color" data-count="6779">0</span><span
+                            class="stat-lbl">km diameter</span></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ASTEROID BELT -->
+        <section class="panel panel-short" id="panel-asteroids">
+            <div class="panel-inner center-text">
+                <h2 class="transition-heading" data-anim="fade">⟡ ASTEROID BELT ⟡</h2>
+                <p class="transition-sub" data-anim="fade">Navigating millions of rocky fragments</p>
+            </div>
+        </section>
+
+        <!-- JUPITER -->
+        <section class="panel" id="panel-jupiter">
+            <div class="panel-inner side-right">
+                <span class="section-num">03</span>
+                <h2 class="planet-title jupiter-color" data-anim="slide">Jupiter</h2>
+                <p class="planet-tag" data-anim="slide">The Gas Giant King</p>
+                <p class="planet-body" data-anim="slide">The largest planet in our solar system. Jupiter's iconic Great
+                    Red Spot is a storm larger than Earth that has raged for over 350 years.</p>
+                <div class="stats-row" data-anim="slide">
+                    <div class="stat"><span class="stat-val jupiter-color" data-count="139820">0</span><span
+                            class="stat-lbl">km diameter</span></div>
+                    <div class="stat"><span class="stat-val jupiter-color" data-count="95">0</span><span
+                            class="stat-lbl">known moons</span></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SATURN -->
+        <section class="panel" id="panel-saturn">
+            <div class="panel-inner side-left">
+                <span class="section-num">04</span>
+                <h2 class="planet-title saturn-color" data-anim="slide">Saturn</h2>
+                <p class="planet-tag" data-anim="slide">Lord of the Rings</p>
+                <p class="planet-body" data-anim="slide">Saturn's magnificent ring system extends up to 282,000 km from
+                    the planet, yet is only about 10 meters thick — a cosmic masterpiece of ice and rock.</p>
+                <div class="stats-row" data-anim="slide">
+                    <div class="stat"><span class="stat-val saturn-color" data-count="116460">0</span><span
+                            class="stat-lbl">km diameter</span></div>
+                    <div class="stat"><span class="stat-val saturn-color" data-count="146">0</span><span
+                            class="stat-lbl">known moons</span></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- DEEP SPACE -->
+        <section class="panel panel-short" id="panel-deep">
+            <div class="panel-inner center-text">
+                <h2 class="transition-heading" data-anim="fade">ENTERING DEEP SPACE</h2>
+                <p class="transition-sub" data-anim="fade">4.5 billion km from home</p>
+            </div>
+        </section>
+
+        <!-- NEBULA -->
+        <section class="panel" id="panel-nebula">
+            <div class="panel-inner center-text">
+                <span class="section-num">05</span>
+                <h2 class="planet-title nebula-color" data-anim="fade">The Nebula</h2>
+                <p class="planet-tag" data-anim="fade">Where Stars Are Born</p>
+                <p class="planet-body" style="max-width:550px;margin:0 auto" data-anim="fade">Nebulae are vast clouds of
+                    gas and dust — the birthplace of stars. Within these cosmic nurseries, gravity pulls matter together
+                    to ignite new suns.</p>
+            </div>
+        </section>
+
+        <!-- THE EDGE -->
+        <section class="panel" id="panel-edge">
+            <div class="panel-inner center-text">
+                <p class="edge-pre" data-anim="fade">YOU HAVE TRAVELED</p>
+                <div class="edge-num-row">
+                    <span class="edge-number" id="final-counter">0</span>
+                    <span class="edge-unit">BILLION LIGHT-YEARS</span>
+                </div>
+                <h2 class="edge-heading" data-anim="fade">The Edge of the Observable Universe</h2>
+                <p class="edge-body" data-anim="fade">Beyond this point, light hasn't had enough time since the Big Bang
+                    to reach us. What lies beyond remains one of the greatest mysteries of existence.</p>
+                <button id="restart-btn" data-anim="fade">↺ Return to Earth</button>
+            </div>
+        </section>
+
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>
